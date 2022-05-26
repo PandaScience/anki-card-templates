@@ -1,0 +1,141 @@
+<!-- FRONT TEMPLATE -->
+
+<!DOCTYPE html>
+<script type="text/javascript">
+	function reveal_pinyin() {
+		document.getElementsByClassName("hanzi")[0].style.display = "none";
+		document.getElementsByClassName("ruby")[0].style.display = "block";
+	}
+</script>
+
+<div class="question">
+	<div class="container">
+		<div class="hanzi" onclick="reveal_pinyin()">{{Color}}</div>
+		<div class="ruby">
+			<a href='intent:#Intent;action=com.hanpingchinese.cmn.intent.action.PLAY;package=com.embermitre.hanping.app.pro;S.p={{text:Tones}};S.s={{text:Hanzi}};S.LANG=cmn;S._SOURCE=anki;end'>
+				{{Ruby}}
+			</a>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- BACK TEMPLATE -->
+
+<!DOCTYPE html>
+<div class="answer">
+	<div class="container">
+		<div class="ruby">
+			<a href='intent:#Intent;action=com.hanpingchinese.cmn.intent.action.PLAY;package=com.embermitre.hanping.app.pro;S.p={{text:Tones}};S.s={{text:Hanzi}};S.LANG=cmn;S._SOURCE=anki;end'>
+				{{Ruby}}
+			</a>
+		</div>
+	</div>
+
+	{{#Classifier}}
+	<div class="classifier">
+		{{Classifier}}<br>
+		(Classifier)
+	</div>
+	{{/Classifier}}
+
+	<hr>
+
+	<div class="meaning">
+		<table>
+			<tr><th>EN &nbsp;</th><td>{{English}}</td></tr>
+			<tr><td colspan="2"><hr/></td></tr>
+			<tr><th>FR &nbsp;</th><td>{{French}}</td></tr>
+		</table>
+	</div>
+</div>
+
+
+
+<!-- STYLING -->
+<style>
+/* https://fonts.google.com/?subset=chinese-simplified */
+/* @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@600&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap'); */
+/* font-family: 'Ma Shan Zheng', cursive; */
+/* font-family: 'Long Cang', cursive; */
+/* font-family: 'Klee One', cursive; */
+
+@font-face {
+	font-family: kaiti;
+	src: url("_gkai00mp.ttf");
+}
+
+.tone1 {color: dodgerblue;}
+.tone2 {color: forestgreen;}
+.tone3 {color: darkorange;}
+.tone4 {color: crimson;}
+.tone5 {color: gray;}
+
+.mobile .night_mode .tone1 {color: dodgerblue;}
+.mobile .night_mode .tone2 {color: forestgreen;}
+.mobile .night_mode .tone3 {color: darkorange;}
+.mobile .night_mode .tone4 {color: crimson;}
+.mobile .night_mode .tone5 {color: gray;}
+
+/* Anki root element */
+.card {
+	font-family: arial;
+	font-size: 1.2rem;
+	text-align: center;
+	color: black;
+}
+
+/* for proper display of this file in browser */
+.question,
+.answer {
+	text-align: center;
+}
+
+/* hanzi / ruby exact overlap */
+.container {
+	height: 10em;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+}
+
+.container .ruby,
+.container .hanzi {
+	vertical-align: bottom;
+}
+
+.question .container .ruby {
+	display: none;
+}
+
+/* font settings */
+.ruby, .hanzi {
+	font-family: kaiti;
+	font-size: 3rem;
+}
+
+ruby rt {
+	font-family: arial;
+}
+
+.ruby a {
+	text-decoration: none;
+}
+
+/* translations in bordered table */
+table {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.3em;
+	border: 0.1em solid gray;
+	border-radius: 0.5em;
+}
+
+table th {
+	white-space: nowrap;
+}
+
+</style>
