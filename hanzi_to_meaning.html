@@ -40,6 +40,12 @@
 	</div>
 	{{/Classifier}}
 
+	{{#Notes}}
+	<div class="notes">
+		<b>Notes:</b> {{Notes}}
+	</div>
+	{{/Notes}}
+
 	<hr>
 
 	<div class="meaning">
@@ -96,7 +102,8 @@
 
 /* hanzi / ruby exact overlap */
 .container {
-	height: 10em;
+	/* border: 3px solid red; */
+	height: 8em;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-end;
@@ -136,6 +143,11 @@ table {
 
 table th {
 	white-space: nowrap;
+}
+
+/* misc */
+.notes {
+	margin: 1em auto;
 }
 
 </style>
